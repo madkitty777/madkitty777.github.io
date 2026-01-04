@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>madkitty dot world</title>
-		
+		<link rel="icon" type="image/x-icon" href="favicon.svg">
 		<link href="https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Micro+5&display=swap" rel="stylesheet">
 
@@ -14,6 +14,7 @@
 			html {
 				background-image: url("giygaslight.png");
 				background-repeat: repeat;
+				background-color: #fff6ff;
 				position: relative;
 			}
 	
@@ -26,8 +27,7 @@
 				flex-direction: column;
 				justify-content: center;
 				align-items: center;
-				text-align: center;
-				
+				text-align: center;				
 			}
 			
 			body::before {
@@ -59,6 +59,13 @@
 				border-color: #ffebff;
 				background-color: #ffdbff;
 				padding: 2ch;
+				margin-bottom: 4rem;
+			}
+			
+			 hr {
+				height: 2px;
+				border: none;
+				background-color: #ffebff;
 			}
 			
 			.wave-text span {
@@ -96,6 +103,14 @@
 				}
 			}
 
+			.audio-wrap {
+				position:relative;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 12px;
+			}
+
 			.audio-player {
 				position: relative;
 				width: 125px;
@@ -128,11 +143,40 @@
 
 				.play-pause .icon {
 				width: 100%;
-				height: 100%;
-				}
+				height: 100%;	
 			}
 
+			.volume-slider {
+				position: absolute;
+				right: -80px;
+				top: 48%;
+				transform: translateY(-50%) rotate(90deg);
+				width: 80px;
+				opacity: 0;
+				pointer-events: none;
+				transition: opacity 0.5s ease;
+				accent-color: #f0a8f3;
+			}
 
+			.audio-player.playing .volume-slider {
+				opacity: 1;
+				pointer-events: auto;
+			}
+			
+			.neco {
+				position: absolute;
+				right: 65%;
+				margin-right: 12px;
+				width: 80px;
+
+				opacity: 0;
+				transition: opacity 0.5s ease;
+				pointer-events: none;
+			}
+
+			.neco.playing {
+				opacity: 1;
+			}
 
 		</style>
 		
@@ -151,36 +195,56 @@
 		
 			<h3 style="color: #653766";>welcome to my website #website</h3>
 		
-			<div class="audio-player">
-				<svg viewBox="0 0 100 100" class="progress-ring">
-					<circle cx="50" cy="50" r="45" stroke="#f0a8f3" stroke-width="5" fill="none"/>
-					<circle cx="50" cy="50" r="45" stroke="#cf68d4" stroke-width="5" fill="none" stroke-dasharray="282.6" stroke-dashoffset="282.6"/>
-				</svg>
-				<button class="play-pause">
-					<img src="play.png" alt="play!!" class="icon">
-				</button>
-				<audio id="audio" src="FACTOR THIS mp3.mp3"></audio>
+			<div class="audio-wrap">
+				<img src="neco.gif" class="neco" alt="neco arc">
+		
+				<div class="audio-player">
+					<svg viewBox="0 0 100 100" class="progress-ring">
+						<circle cx="50" cy="50" r="45" stroke="#f0a8f3" stroke-width="5" fill="none"/>
+						<circle cx="50" cy="50" r="45" stroke="#cf68d4" stroke-width="5" fill="none" stroke-dasharray="282.6" stroke-dashoffset="282.6"/>
+					</svg>
+					<button class="play-pause">
+						<img src="play.png" alt="play!!" class="icon">
+					</button>
+					
+					<input
+						type="range"
+						class="volume-slider"
+						min="0"
+						max="1"
+						step="0.01"
+						value="1"
+						style="direction: rtl;"
+					/>
+					
+					<audio id="audio" src="FACTOR THIS mp3.mp3"></audio>
+				</div>
 			</div>
 		
 			<p style="color: #653766";>
-				i trans'd my gender and started making some freaky music<br>
+				hi i trans'd my gender and started making some freaky music<br>
 				this website is where you can find my musings or other projects or<br>
 				watever else i feel like putting here. enjoy!!!!!<br>
 				<span style="font-size: 0.7em">(song above: madkitty!! -- FACTOR THIS)</span>
 				<br><br>
-				everything here is made with <span style="color: #da20e0"> love </span> <i>(and estrogen)</i><br>
+				everything here is made with <span style="color: #cc5ad1"> love </span> <i>(and estrogen)</i><br>
 				<span style="font-size: 0.7em">(this is basically a side project of a side project lol)</span>
 			</p>
 			
+			<br><hr><br>
 			
 			<p style="color: #653766";> listen to my music here vvv<br>
 			<a href="https://www.youtube.com/watch?v=_wTBGbg1ZZk" target="_blank">bandcamp</a>
 			<a href="https://www.youtube.com/watch?v=_wTBGbg1ZZk" target="_blank">spotify</a>	
 			<a href="https://www.youtube.com/watch?v=_wTBGbg1ZZk" target="_blank">apple music</a>
 			<a href="https://www.youtube.com/watch?v=_wTBGbg1ZZk" target="_blank">youtube</a>
+			</p>
+			
+		
+			<br><hr><br>
 		
 			<p style="color: #653766";>
-			here are some really well thought-out lyrics:<br><br>
+			here are some really well thought-out lyrics i wrote:<br><br>
 			<i>imagine if the world was bright and carefree<br>
 			it'd be puppy doggy world<br>
 			and you see, i'm the queen<br>
@@ -188,15 +252,25 @@
 			for you and me</i>
 			</p>
 			
+			<p style="color: #653766";>dogs... go eat dirt or something</p>
+			
 			<marquee
 			  direction="down"
-			  width="400"
+			  width="450"
 			  height="300"
 			  behavior="alternate"
 			  class="outlined">
-			 <marquee behavior="alternate"><img src="kitten.png" width="150" title="hi!!!" alt="cute kitty"></marquee>
+			 <marquee behavior="alternate"><img src="kitten.png" width="150" title="hi!!!" alt="kitty"></marquee>
 			</marquee>
 			<p style="color: #653766">^^^ bounced for eternity</p>
+			
+			<br><hr><br>
+			
+			<p style="color: #653766">ALSO visit this awesome website: <a href="https://puppyboy.parts" target="_blank">puppyboy.parts</a><br>
+			some dog runs it.... with his own two paws</p>
+			
+			<p style="color: #653766"><span  style="font-size: 0.7em">2026 madkitty all rights reserved or something<br>
+			direct any complaints to da BIN</span></p>
 		</main>
 		
 		<script>
@@ -206,6 +280,12 @@
 			const progressCircle = document.querySelectorAll('.progress-ring circle')[1];
 			const radius = 45;
 			const circumference = 2 * Math.PI * radius;
+			const volumeSlider = document.querySelector('.volume-slider');
+			const neco = document.querySelector('.neco');
+
+			volumeSlider.addEventListener('input', () => {
+				audio.volume = volumeSlider.value;
+			});
 
 			progressCircle.style.strokeDasharray = `${circumference} ${circumference}`;
 			progressCircle.style.strokeDashoffset = circumference;
@@ -216,13 +296,17 @@
 			}
 
 			button.addEventListener('click', () => {
-			  if(audio.paused){
-				audio.play();
-				icon.src = 'pause.png';
-			  } else {
-				audio.pause();
-				icon.src = 'play.png';
-			  }
+				if (audio.paused) {
+					audio.play();
+					icon.src = 'pause.png';
+					document.querySelector('.audio-player').classList.add('playing');
+					neco.classList.add('playing');
+				} else {
+					audio.pause();
+					icon.src = 'play.png';
+					document.querySelector('.audio-player').classList.remove('playing');
+					neco.classList.remove('playing');
+				}
 			});
 
 			audio.addEventListener('timeupdate', setProgress);
