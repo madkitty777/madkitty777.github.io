@@ -266,9 +266,6 @@
 			
 			<br><hr><br>
 			
-			<p style="color: #653766">ALSO visit this awesome website: <a href="https://puppyboy.parts" target="_blank">puppyboy.parts</a><br>
-			some dog runs it.... with his own two paws</p>
-			
 			<p style="color: #653766"><span  style="font-size: 0.7em">2026 madkitty all rights reserved or something<br>
 			direct any complaints to da BIN</span></p>
 		</main>
@@ -286,6 +283,7 @@
 			volumeSlider.addEventListener('input', () => {
 				audio.volume = volumeSlider.value;
 			});
+			audio.volume = volumeSlider.value;
 
 			progressCircle.style.strokeDasharray = `${circumference} ${circumference}`;
 			progressCircle.style.strokeDashoffset = circumference;
