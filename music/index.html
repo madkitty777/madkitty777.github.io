@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>madkitty dot world</title>
-		<link rel="icon" type="image/x-icon" href="style/favicon.svg">
+		<link rel="icon" type="image/x-icon" href="../style/favicon.svg">
 		<link href="https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Micro+5&display=swap" rel="stylesheet">
 
@@ -12,7 +12,7 @@
 		
 		<style>
 			html {
-				background-image: url("style/giygaslight.png");
+				background-image: url("../style/giygaslight.png");
 				background-repeat: repeat;
 				background-color: #fff6ff;
 				position: relative;
@@ -31,10 +31,7 @@
 			}
 			
 			main {
-				width: 100%;
-				max-width: 500px;
-				box-sizing: border-box;
-
+				width: 470px;
 				border: 8px outset;
 				border-color: #ffebff;
 				background-color: #ffdbff;
@@ -90,13 +87,11 @@
 				
 				z-index: 1;
 			}
-				
+			
 			h1 {
 				font-family: "Jacquard 12", serif;
 				font-size: 5em;
 				margin-bottom: 0;
-				
-				z-index: 2;
 			}
 			
 			h3 {
@@ -104,6 +99,7 @@
 				font-size: 2.3em;
 				margin-top: 0;
 				margin-bottom: 0;
+				color: #653766;
 			}
 			
 			p {
@@ -150,7 +146,27 @@
 					transform: translateY(-20px);
 				}
 			}
+			
+			html::before {
+				content: "";
+				position: fixed;
+				inset: -50%;
+				background: url("../style/clouds.png") repeat;
+				background-size: 512px 512px;
+				pointer-events: none;
+				animation: driftSlow 6s linear infinite;
+				z-index: 0;
+			}			
+			
+			@keyframes driftSlow {
+				from { transform: translate(0, 0); }
+				to   { transform: translate(-512px, 512px); }
+			}
 
+			.flchan {
+				margin-top: -5ch;
+			}
+			
 			.audio-wrap {
 				position:relative;
 				display: flex;
@@ -226,31 +242,15 @@
 				opacity: 1;
 			}
 
-			html::before {
-				content: "";
-				position: fixed;
-				inset: -50%;
-				background: url("style/clouds.png") repeat;
-				background-size: 512px 512px;
-				pointer-events: none;
-				animation: driftSlow 6s linear infinite;
-				z-index: 0;
-			}			
-			
-			@keyframes driftSlow {
-				from { transform: translate(0, 0); }
-				to   { transform: translate(-512px, 512px); }
-			}
-
 		</style>
 		
 	</head>
 	
 	<body>
 	
-		<script src="oneko/oneko.js"></script>
-	
-		<h1 class="wave-text" style="color: #653766";;>
+		<script src="/oneko/oneko.js"></script>
+		
+		<h1 class="wave-text" style="color: #653766">
 			<span>m</span><span>a</span><span>d</span><span>k</span><span>i</span><span>t</span><span>t</span><span>y</span>
 			<span> </span>
 			<span>d</span><span>o</span><span>t</span>
@@ -258,19 +258,37 @@
 			<span>w</span><span>o</span><span>r</span><span>l</span><span>d</span>
 		</h1>
 		
-		
 		<main>
 		
 			<nav class="top-nav">
-				<a href="/music/">music</a>
-				<a href="/blog/">blog</a>
+				<a href="/">home</a>
+				<a href="/blog/" target="_blank">blog</a>
 				<a href="/other/">other stuff</a>
 			</nav>
-			
-			<h3 style="color: #653766";>welcome to my website!!</h3>
 		
+			<h3>find all my music here!</h3>
+			<p>i make (and have made) a lot of music over the years, here is a little link aggregate for everything!<br>
+			<span style="font-size: 0.7em">(at least what i'm willing to share lol i have like ten years worth of projects and a lot are shit)</span>
+			<br><br>
+			i use fl studio for everything and also mix and master it all myself so if it sounds bad that's why teehee</p>
+
+
+			<img src="flchan.gif" class="flchan" alt="imagine fl chan dancing crazy style here" title="hit it girl!!" width="100px">
+			
+			<br><hr><br>
+			
+			<h3>madkitty!!</h3>
+			<p>loud noise made with my puter (freeclip on master channel :steamhappy:)</p>
+			
+			<nav class="top-nav">
+				<a href="https://madkitty.bandcamp.com" target="_blank">bandcamp</a>
+				<a href="https://static.wikia.nocookie.net/nicos-nextbots/images/9/94/Steam.png/revision/latest?cb=20250511031636" target="_blank">spotify</a>
+				<a href="https://static.wikia.nocookie.net/nicos-nextbots/images/9/94/Steam.png/revision/latest?cb=20250511031636" target="_blank">apple music</a>
+			</nav>
+			
+			<p><i>demo song: madkitty!! -- BORING</i></p>
 			<div class="audio-wrap">
-				<img src="images/neco.gif" class="neco" alt="neco">
+				<img src="../images/neco.gif" class="neco" alt="neco">
 		
 				<div class="audio-player">
 					<svg viewBox="0 0 100 100" class="progress-ring">
@@ -278,7 +296,7 @@
 						<circle cx="50" cy="50" r="45" stroke="#cf68d4" stroke-width="5" fill="none" stroke-dasharray="282.6" stroke-dashoffset="282.6"/>
 					</svg>
 					<button class="play-pause">
-						<img src="style/play.png" alt="play!!" title="click me!!" class="icon">
+						<img src="../style/play.png" alt="play!!" title="click me!!" class="icon">
 					</button>
 					
 					<input
@@ -291,79 +309,113 @@
 						style="direction: rtl;"
 					/>
 					
-					<audio id="audio" src="audio/FACTOR THIS mp3.mp3"></audio>
+					<audio src="boringdemo.mp3"></audio>
 				</div>
 			</div>
+			
+			<br><hr><br>
+			
+			<h3>raingardens</h3>
+			<p>my slightly more serious alt-rock-esque music, used to be more psych rock but not so much anymore!
+			<br><br>i have an album i'm working on but it might take a while to release... i have other songs out though!</p>
+			
+			<nav class="top-nav">
+				<a href="https://raingardens.bandcamp.com" target="_blank">bandcamp</a>
+				<a href="https://open.spotify.com/artist/12FxzoNimVb51reI70V6Hy?si=5rTwhjqeR-mSCvpggmK7kQ" target="_blank">spotify</a>
+				<a href="https://music.apple.com/au/artist/raingardens/1688661977" target="_blank">apple music</a>
+			</nav>
+			
+			<p><i>demo song: Raingardens -- To Free A Swan (unreleased)<i></p>
+			<div class="audio-wrap">
+				<img src="../images/neco.gif" class="neco" alt="neco">
 		
-			<p>
-				hi i used to make music as a man now i make it as a woman<br>
-				this website is where you can find my musings or other projects or watever else i feel like putting here. enjoy!!!!!<br>
-				<span style="font-size: 0.7em">(song above: madkitty!! -- FACTOR THIS)</span><br>
-				
-				<br>everything here is made with <span style="color: #cc5ad1"> love </span> <i>(and a lot of time lol)</i></p>
-				
+				<div class="audio-player">
+					<svg viewBox="0 0 100 100" class="progress-ring">
+						<circle cx="50" cy="50" r="45" stroke="#f0a8f3" stroke-width="5" fill="none"/>
+						<circle cx="50" cy="50" r="45" stroke="#cf68d4" stroke-width="5" fill="none" stroke-dasharray="282.6" stroke-dashoffset="282.6"/>
+					</svg>
+					<button class="play-pause">
+						<img src="../style/play.png" alt="play!!" title="click me!!" class="icon">
+					</button>
+					
+					<input
+						type="range"
+						class="volume-slider"
+						min="0"
+						max="1"
+						step="0.01"
+						value="1"
+						style="direction: rtl;"
+					/>
+					
+					<audio src="tfasdemo.mp3"></audio>
+				</div>
+			</div>
+			
+			
+			<br><br><hr><br>
+			
+			<marquee
+				direction="down"
+				width="450"
+				height="300"
+				behavior="alternate"
+				class="outlined">
+				<marquee behavior="alternate"><img src="../images/kitten.png" width="150" title="hi!!!" alt="kitty"></marquee>
+			</marquee>
+			<p>^^^ bounced for eternity (in da music link aggregate page)</p>
+			
+			<br><p style="font-size: 0.7em">
+				<img src="../images/ma own paws.png" width="80" alt="made with my own two paws!!">
 			</p>
 			
-			<br><hr><br>
-			
-			<p><img src="images/me.jpg" alt="real pic of me" title="hello mro...." width="250px" style="border: 4px outset #ffebff"><br>
-			^^ this is me if u even car ...</p>
-			
-			<br><hr><br>
-			
-			<p>dogs... go eat dirt or something</p>
-			
-			<p style="color: #653766"><span  style="font-size: 0.7em">2026 madkitty all rights reserved or something<br>
-			direct any complaints to da BIN<br>
-			cat following cursor courtesy of <a href="https://github.com/adryd325/oneko.js" target="_blank">adryd325</a></span></p>
-		
-			
-		
-			<p style="font-size: 0.7em"><a href="https://puppyboy.parts" target="_blank">
-				<img src="images/ma own paws.png" width="80" alt="made with my own two paws!!">
-			</a></p>
-			
 		</main>
-		
+
 		<script>
-			const audio = document.getElementById('audio');
-			const button = document.querySelector('.play-pause');
-			const icon = button.querySelector('.icon');
-			const progressCircle = document.querySelectorAll('.progress-ring circle')[1];
-			const radius = 45;
-			const circumference = 2 * Math.PI * radius;
-			const volumeSlider = document.querySelector('.volume-slider');
-			const neco = document.querySelector('.neco');
+			document.querySelectorAll('.audio-player').forEach(player => {
+				const audio = player.querySelector('audio');
+				const button = player.querySelector('.play-pause');
+				const icon = button.querySelector('.icon');
+				const progressCircle = player.querySelectorAll('.progress-ring circle')[1];
+				const volumeSlider = player.querySelector('.volume-slider');
+				const neco = player.closest('.audio-wrap').querySelector('.neco');
 
-			volumeSlider.addEventListener('input', () => {
-				audio.volume = volumeSlider.value;
-			});
-			audio.volume = volumeSlider.value;
+				const radius = 45;
+				const circumference = 2 * Math.PI * radius;
 
-			progressCircle.style.strokeDasharray = `${circumference} ${circumference}`;
-			progressCircle.style.strokeDashoffset = circumference;
+				progressCircle.style.strokeDasharray = `${circumference} ${circumference}`;
+				progressCircle.style.strokeDashoffset = circumference;
 
-			function setProgress() {
-				const offset = circumference - (audio.currentTime / audio.duration) * circumference;
-				progressCircle.style.strokeDashoffset = offset;
-			}
-
-			button.addEventListener('click', () => {
-				if (audio.paused) {
-					audio.play();
-					icon.src = 'style/pause.png';
-					document.querySelector('.audio-player').classList.add('playing');
-					neco.classList.add('playing');
-				} else {
-					audio.pause();
-					icon.src = 'style/play.png';
-					document.querySelector('.audio-player').classList.remove('playing');
-					neco.classList.remove('playing');
+				function setProgress() {
+					if (!audio.duration) return;
+					const offset = circumference - (audio.currentTime / audio.duration) * circumference;
+					progressCircle.style.strokeDashoffset = offset;
 				}
-			});
 
-			audio.addEventListener('timeupdate', setProgress);
+				volumeSlider.addEventListener('input', () => {
+					audio.volume = volumeSlider.value;
+				});
+				audio.volume = volumeSlider.value;
+
+				button.addEventListener('click', () => {
+					if (audio.paused) {
+						audio.play();
+						icon.src = '../style/pause.png';
+						player.classList.add('playing');
+						neco.classList.add('playing');
+					} else {
+						audio.pause();
+						icon.src = '../style/play.png';
+						player.classList.remove('playing');
+						neco.classList.remove('playing');
+					}
+				});
+
+				audio.addEventListener('timeupdate', setProgress);
+			});
 		</script>
+
 	</body>
 
-</html>
+
+
