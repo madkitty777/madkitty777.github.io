@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>madkitty dot world</title>
+		<link rel="icon" type="image/x-icon" href="../../style/favicon.svg">
+		<link href="https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Micro+5&display=swap" rel="stylesheet">
+
+
+		
+		<style>
+			html {
+				background-image: url("../../style/giygaslight.png");
+				background-repeat: repeat;
+				background-color: #fff6ff;
+				position: relative;
+			}
+	
+		
+			body {
+				width: 100%;
+				margin: 0;
+				min-height: 100vh;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				text-align: center;				
+			}
+			
+			main {
+				width: 470px;
+				border: 8px outset;
+				border-color: #ffebff;
+				background-color: #ffdbff;
+				padding: 2ch;
+				margin-bottom: 4rem;
+				position: relative;
+				z-index: 2;
+			}
+			
+			.top-nav {
+				display: flex;
+				width: 100%;
+				max-width: 500px;
+				gap: 1ch;
+				margin-bottom: 0.8ch;
+				justify-content: space-between;
+				box-sizing: border-box;
+			}
+
+			.top-nav a {
+				flex: 1;
+				
+				color: #653766;
+				text-decoration: none;
+
+				font-size: 1.2em;
+
+				border: 2px outset #ffebff;
+				background-color: #ffdbff;
+
+				font-family: "Micro 5", serif;
+				text-align: center;
+
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				z-index: 2;
+			}
+			
+			.top-nav a:hover {
+				background-color: #f6c8f6;
+			}
+			
+			body::before {
+				content: "";
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				pointer-events: none;
+				background: linear-gradient(to right, rgba(255,219,255,1) 0%, rgba(255,219,255,0) 10%, rgba(255,219,255,0) 90%, rgba(255,219,255,1) 100%);
+				
+				z-index: 1;
+			}
+			
+			h1 {
+				font-family: "Jacquard 12", serif;
+				font-size: 5em;
+				margin-bottom: 0;
+			}
+			
+			h3 {
+				font-family: "Micro 5", serif;
+				font-size: 2.3em;
+				margin-top: 0;
+				margin-bottom: 0;
+			}
+			
+			p {
+				color: #653766;
+			}
+			
+			hr {
+				height: 2px;
+				border: none;
+				background-color: #ffebff;
+			}
+			
+			.wave-text span {
+				display: inline-block;
+				animation: wave 2s ease-in-out infinite;
+			}
+
+			.wave-text span:nth-child(1) { animation-delay: 0s; }
+			.wave-text span:nth-child(2) { animation-delay: 0.1s; }
+			.wave-text span:nth-child(3) { animation-delay: 0.2s; }
+			.wave-text span:nth-child(4) { animation-delay: 0.3s; }
+			.wave-text span:nth-child(5) { animation-delay: 0.4s; }
+			.wave-text span:nth-child(6) { animation-delay: 0.5s; }
+			.wave-text span:nth-child(7) { animation-delay: 0.6s; }
+			.wave-text span:nth-child(8) { animation-delay: 0.7s; }
+			.wave-text span:nth-child(9) { animation-delay: 0.8s; }
+			.wave-text span:nth-child(10) { animation-delay: 0.9s; }
+			.wave-text span:nth-child(11) { animation-delay: 1s; }
+			.wave-text span:nth-child(12) { animation-delay: 1.1s; }
+			.wave-text span:nth-child(13) { animation-delay: 1.2s; }
+			.wave-text span:nth-child(14) { animation-delay: 1.3s; }
+			.wave-text span:nth-child(15) { animation-delay: 1.4s; }
+			.wave-text span:nth-child(16) { animation-delay: 1.5s; }
+			.wave-text span:nth-child(17) { animation-delay: 1.6s; }
+			.wave-text span:nth-child(18) { animation-delay: 1.7s; }
+			.wave-text span:nth-child(19) { animation-delay: 1.8s; }
+			.wave-text span:nth-child(20) { animation-delay: 1.9s; }
+
+			@keyframes wave {
+				0%, 100% {
+					transform: translateY(0);
+				}
+				50% {
+					transform: translateY(-20px);
+				}
+			}
+
+			html::before {
+					content: "";
+					position: fixed;
+					inset: -50%;
+					background: url("../../style/clouds.png") repeat;
+					background-size: 512px 512px;
+					pointer-events: none;
+					animation: driftSlow 6s linear infinite;
+					z-index: 0;
+				}			
+				
+				@keyframes driftSlow {
+					from { transform: translate(0, 0); }
+					to   { transform: translate(-512px, 512px); }
+			}
+
+			.audio-wrap {
+				position:relative;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 12px;
+			}
+
+			.audio-player {
+				position: relative;
+				width: 125px;
+				height: 125px;
+				margin: 0.5em auto;
+			}
+
+			.progress-ring {
+				transform: rotate(-90deg);
+				width: 100%;
+				height: 100%;
+			}
+
+			.progress-ring circle {
+				transition: stroke-dashoffset 0.1s linear;
+			}
+
+			.play-pause {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				background: none;
+				border: none;
+				cursor: pointer;
+				width: 50px;
+				height: 50px;
+				padding: 0;
+				}
+
+				.play-pause .icon {
+				width: 100%;
+				height: 100%;	
+			}
+
+			.volume-slider {
+				position: absolute;
+				right: -80px;
+				top: 48%;
+				transform: translateY(-50%) rotate(90deg);
+				width: 80px;
+				opacity: 0;
+				pointer-events: none;
+				transition: opacity 0.5s ease;
+				accent-color: #f0a8f3;
+			}
+
+			.audio-player.playing .volume-slider {
+				opacity: 1;
+				pointer-events: auto;
+			}
+			
+			.neco {
+				position: absolute;
+				right: 65%;
+				margin-right: 12px;
+				width: 80px;
+
+				opacity: 0;
+				transition: opacity 0.5s ease;
+				pointer-events: none;
+			}
+
+			.neco.playing {
+				opacity: 1;
+			}
+
+		</style>
+		
+	</head>
+	
+	<body>
+	
+		<script src="/oneko/oneko.js"></script>
+	
+		<h1 class="wave-text" style="color: #653766";>
+			<span>m</span><span>a</span><span>d</span><span>k</span><span>i</span><span>t</span><span>t</span><span>y</span>
+			<span> </span>
+			<span>d</span><span>o</span><span>t</span>
+			<span> </span>
+			<span>w</span><span>o</span><span>r</span><span>l</span><span>d</span>
+		</h1>
+		
+		<main>
+		
+			<nav class="top-nav">
+				<a href="/">home</a>
+				<a href="/blog/">blog index</a>
+			</nav>
+		
+			<h3 style="color: #653766";>welcome to my blog #blog</h3>
+			<hr>
+			
+			<p><b>#2 - 07/01/26 - madkitty's guide to guitars (and what ones i use)</b></p>
+			
+			<img src="catbass.gif" width="200px" title="yea i know it's a bass not a guitar watever..." alt="cat playing a bass" style="border: 4px outset #ffebff">
+			
+			<p>i've been playing guitar since i was at least 7 (i'm 22 now), but didn't really get into it seriously until i was 17 and started listening to a lot more rock (and later on metal). personally my true love is the electric guitar! conceptually they're very simple, just tension a metal string over a bunch of coiled copper wire and shove the resulting output into a speaker. obviously there's a lot more nuance but idgaf really; <a href="https://en.wikipedia.org/wiki/Electric_guitar" target="_blank">wikipedia</a> has me covered for more in-depth info.</p>
+			
+			<p>my electric guitaring started as i desperately wanted to sound like tame impala or king gizzard, but then as i got older i moved onto heavier, less psych-rocky stuff. i still love the sound i first sought to recreate but ya now i want to be deftones 2...</p>
+			
+			<p>for madkitty!! stuff i don't use guitars (just ma puter mostly (now i think about it i defs tracked some distorted bass atop the bassline for FACTOR THIS)), but i use them extensively with Raingardens. i'm definitely more of a rhythm guitarist than anything and have never learnt to solo properly but whatever.</p>
+			
+			<p>anyway here are the guitars i use and love and adore and then the ones i am ambivalent towards :DDD do not judge me for my playing.... i am not actually a very good guitarist at all</p>
+			
+			<hr>
+			
+			<p><b>my jazzmasters!!</b></p>
+			
+			<p>i am a big fan of the <a href="https://en.wikipedia.org/wiki/Fender_Jazzmaster" target="_blank">jazzmaster<a>, so much so that i have two of them!! one is blue and one is white. otherwise they are basically identical</p>
+			
+			<img src="jazzmasters.png" width="480px" alt="ma jazzmasters" title="i tried colour correcting these but they're still green :((">
+			
+			<p>my white jazzmaster is my main guitar, easily. it's a 2024 (or 2025 i can't remember) japanese custom shop one that cost me FAR too much to purchase + import to australia but it's super good so idc. this one is my baby my joy my love, strung with 9.5-44 <a href="https://en.wikipedia.org/wiki/String_(music)#Gauge" target="_blank">gauge</a> strings (i think? whatever primo slinkys are i love them), so i tend to play it around E standard (well sort of i mostly play in drop D but yeah anything around this pitch really. more info on tunings <a href="https://en.wikipedia.org/wiki/Guitar_tunings#Standard_and_alternatives" target="_blank">here</a>). it's beautiful and i love it dearly and if this guitar has no fans left i am dead<p>
+			
+			
+			<div class="audio-wrap">
+				<img src="../../images/neco.gif" class="neco" alt="neco">
+		
+				<div class="audio-player">
+					<svg viewBox="0 0 100 100" class="progress-ring">
+						<circle cx="50" cy="50" r="45" stroke="#f0a8f3" stroke-width="5" fill="none"/>
+						<circle cx="50" cy="50" r="45" stroke="#cf68d4" stroke-width="5" fill="none" stroke-dasharray="282.6" stroke-dashoffset="282.6"/>
+					</svg>
+					<button class="play-pause">
+						<img src="../../style/play.png" alt="play!!" title="click me!!" class="icon">
+					</button>
+					
+					<input
+						type="range"
+						class="volume-slider"
+						min="0"
+						max="1"
+						step="0.01"
+						value="1"
+						style="direction: rtl;"
+					/>
+					<audio src="whitejazz.mp3"></audio>
+				</div>
+			</div>
+			
+			<p style="font-size: 0.7em">audio demo of my white jazzmaster, tuned EADF#Be (E standard with the G tuned down a semitone), just messin around...</p>
+			
+			
+			<p>my blue one was the first electric i ever got, a 2020 vintera jazzmaster of some description, and currently it has 12-56 gauge strings on it to allow for downtuning to drop A# (the low A# is still a bit floppy at tension cuz jazzmaster <a href="https://en.wikipedia.org/wiki/Scale_length_(string_instruments)" target="_blank">scale length</a> + string gauge i chose not really ideal for drop A# but like whatever i work around it).</p>
+			
+			<p>i mostly use this stuff for chuggier or heavier or dark shoegazey sounds (i'm in a band with a few friends of mine where we mostly play that stuff, à la deftones, superheaven etc) and ya i know that jazzmaster <a href="https://en.wikipedia.org/wiki/Single_coil_guitar_pickup" target="_blank">single coil pickups</a> aren't the meta for this but fuck you i don't care it sounds good</p>
+			
+			<div class="audio-wrap">
+				<img src="../../images/neco.gif" class="neco" alt="neco">
+		
+				<div class="audio-player">
+					<svg viewBox="0 0 100 100" class="progress-ring">
+						<circle cx="50" cy="50" r="45" stroke="#f0a8f3" stroke-width="5" fill="none"/>
+						<circle cx="50" cy="50" r="45" stroke="#cf68d4" stroke-width="5" fill="none" stroke-dasharray="282.6" stroke-dashoffset="282.6"/>
+					</svg>
+					<button class="play-pause">
+						<img src="../../style/play.png" alt="play!!" title="click me!!" class="icon">
+					</button>
+					
+					<input
+						type="range"
+						class="volume-slider"
+						min="0"
+						max="1"
+						step="0.01"
+						value="1"
+						style="direction: rtl;"
+					/>
+					<audio src="bluejazz.mp3"></audio>
+				</div>
+			</div>
+			
+			<p style="font-size: 0.7em">blue jazzmaster, tuned drop A#! sorry if it sounds muddy but that's the sound i like teehee</p>
+			
+			<p>ya basically these are really versatile! i've never really felt the need to get a strat or tele or any other fenders coz i feel like my use case only really calls for jazzmasters. these two guitars are the ones i play most regularly and i never intend on getting rid of them.!</p>
+
+			<p style="font-size: 0.7em">you can hear a fleshed-out track with the blue jazzmaster <a href="https://raingardens.bandcamp.com/track/thrum" target="_blank">here</a>, if you're interested... i am very proud of this one!</p>
+
+			<p>i do have other guitars tho....</p>
+			
+			<hr>
+			
+			<p><b>the shadow g</b></p>
+			
+			<img src="shadowg.png" width="480px" alt="the shadow g" title="tuff...">
+			
+			<p>one of the first guitars i got after my blue jazzmaster was a black <a href="https://en.wikipedia.org/wiki/Gibson_SG" target="_blank">epiphone sg</a>. i bought it cuz it was cool! i am very simple. it was my primary "metal" guitar for ages (i stuck fat strings on it) but with its 24" scale and with me purchasing other guitars eventually it was restored to a faithful higher tuned, 9.5 gauge, double <a href="https://en.wikipedia.org/wiki/Humbucker" target="_blank">humbucker</a> setup. it tends to float anywhere between E standard and drop C#, and it's called the shadow g simply as i put a hard sticker of shadow the hedgehog on it.</p>
+			
+			<div class="audio-wrap">
+				<img src="../../images/neco.gif" class="neco" alt="neco">
+		
+				<div class="audio-player">
+					<svg viewBox="0 0 100 100" class="progress-ring">
+						<circle cx="50" cy="50" r="45" stroke="#f0a8f3" stroke-width="5" fill="none"/>
+						<circle cx="50" cy="50" r="45" stroke="#cf68d4" stroke-width="5" fill="none" stroke-dasharray="282.6" stroke-dashoffset="282.6"/>
+					</svg>
+					<button class="play-pause">
+						<img src="../../style/play.png" alt="play!!" title="click me!!" class="icon">
+					</button>
+					
+					<input
+						type="range"
+						class="volume-slider"
+						min="0"
+						max="1"
+						step="0.01"
+						value="1"
+						style="direction: rtl;"
+					/>
+					<audio src="shadowg.mp3"></audio>
+				</div>
+			</div>
+			
+			<p style="font-size: 0.7em">shadow g in drop c#, deftones song as da demo. you can clearly hear in the second part i defs need thicker gauge strings if i'm to keep it in drop c# as hitting the open c# really fucks with the pitch</p>
+			
+			<hr>
+			
+			<p><b>my two other electric guitars</b></p>
+			
+			<img src="others.png" width="480px" alt="ma other guitars" title="i colour corrected these ones better teehee">
+			
+			<p>these two guitars i don't really play super often but they have their uses!</p>
+			
+			<p>i own an ice blue <a href="https://en.wikipedia.org/wiki/Yamaha_Pacifica" target="_blank">pacifica</a> which i bought new for like $400aud (which is pretty cheap for a guitar!) mostly as something to fuck with and maybe mod. i've yet to get around to modding it but i slapped some fat 13 gauge strings on there as an experiment and it can kinda function with them and only SOMETIMES does the low A# slip off the <a href="https://en.wikipedia.org/wiki/Nut_(string_instrument)" target="_blank">nut</a>, mostly if i'm just strumming too hard. its tuning stability is so shit i've relegated it to perma live in drop A#. i don't play it much because i have my blue jazzmaster :3</p>
+			
+			<p style="font-size: 0.7em">no audio demo because i made this post on a 42 degree day and the guitar was so out of tune (metal strings expanding) and its tuning stability is so shit i couldn't be bothered getting it in tune for 5 mins</p>
+			
+			<p>i do still wanna mod it one day, give it new tuners for better stability and repaint the body maybe with a fun design (shadow g 2? shadow pacifica?), maybe swap the pickups out but i can't be bovvered atp</p>
+			
+			<p>the other one is a <a href="https://en.wikipedia.org/wiki/Fender_Bass_VI" target="_blank">squier bass vi</a> which i bought because i was obessed with loathe at the time (and still am). it's got a long scale length (30" versus the standard 24" or 25.5") allowing for lower tunings. usually it's tuned to E standard, just an octave down, but i put some slightly thinner strings on it so that i can have A# standard on the highest 5 strings, and then a low F (sometimes dropped to D# if i'm feeling crazy). once again it's got such a niche use case that i just don't play it much. but fuck it goes hard</p>
+			
+			<div class="audio-wrap">
+				<img src="../../images/neco.gif" class="neco" alt="neco">
+		
+				<div class="audio-player">
+					<svg viewBox="0 0 100 100" class="progress-ring">
+						<circle cx="50" cy="50" r="45" stroke="#f0a8f3" stroke-width="5" fill="none"/>
+						<circle cx="50" cy="50" r="45" stroke="#cf68d4" stroke-width="5" fill="none" stroke-dasharray="282.6" stroke-dashoffset="282.6"/>
+					</svg>
+					<button class="play-pause">
+						<img src="../../style/play.png" alt="play!!" title="click me!!" class="icon">
+					</button>
+					
+					<input
+						type="range"
+						class="volume-slider"
+						min="0"
+						max="1"
+						step="0.01"
+						value="1"
+						style="direction: rtl;"
+					/>
+					<audio src="vi.mp3"></audio>
+				</div>
+			</div>
+			
+			<p style="font-size: 0.7em">admittedly i am not playing well here (especially the ending) but this is me riffing on the low E string</p>
+			
+			<hr>
+			
+			<p><b>my other stringed instruments</b></p>
+			
+			<p>i have two electric basses; one squier <a href="https://en.wikipedia.org/wiki/Fender_Precision_Bass" target="_blank">p-bass</a> with <a href="https://en.wikipedia.org/wiki/String_(music)#Flatwound" target="_blank">flatwounds</a> and one <a href="https://en.wikipedia.org/wiki/H%C3%B6fner_500/1" target="_blank">hofner violin bass</a> clone. i pretty much only ever use the p-bass as the hofner clone is soooo uncomfortable to play (the body digs into my chest) although it does sound good. admittedly, i only ever play bass when i need to track bass for a song. i am a terrible bassist and frankly want to know as little about bass as possible... foul things</p>
+			
+			<p style="font-size: 0.7em">no audio demo because bass is gay</p>
+			
+			<p>i have a tanglewood acoustic of sorts that kinda works but i don't play it much. the nut has detatched from the neck so the only thing holding it in place is pure string tension. the <a href="https://en.wikipedia.org/wiki/Action_(music)#Instruments_plucked_by_hand" target="_blank">action</a> is so high; i have no idea how i managed to learn guitar on this thing. it sure kinda sounds like an acoustic though!</p>
+			
+			<div class="audio-wrap">
+				<img src="../../images/neco.gif" class="neco" alt="neco">
+		
+				<div class="audio-player">
+					<svg viewBox="0 0 100 100" class="progress-ring">
+						<circle cx="50" cy="50" r="45" stroke="#f0a8f3" stroke-width="5" fill="none"/>
+						<circle cx="50" cy="50" r="45" stroke="#cf68d4" stroke-width="5" fill="none" stroke-dasharray="282.6" stroke-dashoffset="282.6"/>
+					</svg>
+					<button class="play-pause">
+						<img src="../../style/play.png" alt="play!!" title="click me!!" class="icon">
+					</button>
+					
+					<input
+						type="range"
+						class="volume-slider"
+						min="0"
+						max="1"
+						step="0.01"
+						value="1"
+						style="direction: rtl;"
+					/>
+					<audio src="acoustic.mp3"></audio>
+				</div>
+			</div>
+			
+			<p style="font-size: 0.7em">i cbf setting up my mic just to record for this so here is some older fingerstyle stuff i did... it's sure an acoustic guitar! although the action is bad it still sounds nice :3c</p>
+			
+			<hr>
+			
+			<p><b>other guitars i may want in future</b></p>
+			
+			<p>i've loosely been in the market for a baritone 6 string (like 26-27" scale) so i can get drop A# and lower tunings with good stability, or maybe a <a href="https://en.wikipedia.org/wiki/Multi-scale_fingerboard" target="_blank">fanned fret</a> 6 string to get better stability with the low strings in drop A#.</p>
+			
+			<p>"but kitty," i hear you scream, "why not just get a 7 or 8 string? are you dumb?"</p>
+			
+			<p>it is a fair question you ask, and yes, i am dumb, but simply i just don't like having more than 6 strings. i owned a 7 string with some god awful product name (i just looked up "ibanez 7 string brown" to find it and i shit you not it's called the Ibanez Q Series Quest QX527PBABS. fuck you) and i just struggled to adjust to it. i borrowed an 8 string from a friend for a bit and it also was difficult to use. once again, i'm more of a rhythm guitarist so it's not really necessary for me to have those higher strings.</p>
+			
+			<hr>
+			
+			<p>all audio (excluding acoustic) recorded thru pedalboard into the fender twin reverb tone master (awesome amp) with a touch of compression and reverb (and distortion before the amp for those cases), then di'd from its output direct into fl. yes i am also realising a lot of the distorted tones sound the same and you can't really tell the difference between the guitars. fuck you don't care</p>
+			
+			<p>i'll talk about my pedals another time... dats like bout it tho</p>
+			
+			<img src="catguitar.jpg" width="200px" title="ok this one IS a guitar" alt="cat playing a guitar" style="border: 4px outset #ffebff">
+			<p style="font-size: 0.7em">^^ me if u even car....</p>
+			
+			<nav class="top-nav">
+				<a href="/">home</a>
+				<a href="/blog/">blog index</a>
+			</nav>
+			
+			<br><p style="font-size: 0.7em">
+				<img src="../../images/ma own paws.png" width="80" alt="made with my own two paws!!">
+			</p>
+			
+		</main>
+
+		<script>
+			document.querySelectorAll('.audio-player').forEach(player => {
+				const audio = player.querySelector('audio');
+				const button = player.querySelector('.play-pause');
+				const icon = button.querySelector('.icon');
+				const progressCircle = player.querySelectorAll('.progress-ring circle')[1];
+				const volumeSlider = player.querySelector('.volume-slider');
+				const neco = player.closest('.audio-wrap').querySelector('.neco');
+
+				const radius = 45;
+				const circumference = 2 * Math.PI * radius;
+
+				progressCircle.style.strokeDasharray = `${circumference} ${circumference}`;
+				progressCircle.style.strokeDashoffset = circumference;
+
+				function setProgress() {
+					if (!audio.duration) return;
+					const offset = circumference - (audio.currentTime / audio.duration) * circumference;
+					progressCircle.style.strokeDashoffset = offset;
+				}
+
+				volumeSlider.addEventListener('input', () => {
+					audio.volume = volumeSlider.value;
+				});
+				audio.volume = volumeSlider.value;
+
+				button.addEventListener('click', () => {
+					if (audio.paused) {
+						audio.play();
+						icon.src = '../../style/pause.png';
+						player.classList.add('playing');
+						neco.classList.add('playing');
+					} else {
+						audio.pause();
+						icon.src = '../../style/play.png';
+						player.classList.remove('playing');
+						neco.classList.remove('playing');
+					}
+				});
+
+				audio.addEventListener('timeupdate', setProgress);
+			});
+		</script>
+
+	</body>
+
