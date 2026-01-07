@@ -31,7 +31,10 @@
 			}
 			
 			main {
-				width: 470px;
+				width: 100%;
+				max-width: 500px;
+				box-sizing: border-box;
+
 				border: 8px outset;
 				border-color: #ffebff;
 				background-color: #ffdbff;
@@ -39,6 +42,40 @@
 				margin-bottom: 4rem;
 				position: relative;
 				z-index: 2;
+			}
+			
+			.top-nav {
+				display: flex;
+				width: 100%;
+				max-width: 500px;
+				gap: 1ch;
+				margin-bottom: 0.8ch;
+				justify-content: space-between;
+				box-sizing: border-box;
+			}
+
+			.top-nav a {
+				flex: 1;
+				
+				color: #653766;
+				text-decoration: none;
+
+				font-size: 1.2em;
+
+				border: 2px outset #ffebff;
+				background-color: #ffdbff;
+
+				font-family: "Micro 5", serif;
+				text-align: center;
+
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				z-index: 2;
+			}
+			
+			.top-nav a:hover {
+				background-color: #f6c8f6;
 			}
 			
 			body::before {
@@ -58,6 +95,8 @@
 				font-family: "Jacquard 12", serif;
 				font-size: 5em;
 				margin-bottom: 0;
+				
+				z-index: 2;
 			}
 			
 			h3 {
@@ -68,7 +107,7 @@
 			}
 			
 			
-			 hr {
+			hr {
 				height: 2px;
 				border: none;
 				background-color: #ffebff;
@@ -200,12 +239,20 @@
 			<span>w</span><span>o</span><span>r</span><span>l</span><span>d</span>
 		</h1>
 		
+		
 		<main>
 		
+			<nav class="top-nav">
+				<a href="/">home</a>
+				<a href="https://www.youtube.com/watch?v=_wTBGbg1ZZk" target="_blank">music</a>
+				<a href="/blog/">blog</a>
+				<a href="/other/">other stuff</a>
+			</nav>
+			
 			<h3 style="color: #653766";>welcome to my website #website</h3>
 		
 			<div class="audio-wrap">
-				<img src="images/neco.gif" class="neco" alt="neco arc">
+				<img src="images/neco.gif" class="neco" alt="neco">
 		
 				<div class="audio-player">
 					<svg viewBox="0 0 100 100" class="progress-ring">
@@ -213,7 +260,7 @@
 						<circle cx="50" cy="50" r="45" stroke="#cf68d4" stroke-width="5" fill="none" stroke-dasharray="282.6" stroke-dashoffset="282.6"/>
 					</svg>
 					<button class="play-pause">
-						<img src="style/play.png" alt="play!!" class="icon">
+						<img src="style/play.png" alt="play!!" title="click me!!" class="icon">
 					</button>
 					
 					<input
@@ -235,22 +282,9 @@
 				this website is where you can find my musings or other projects or watever else i feel like putting here. enjoy!!!!!<br>
 				<span style="font-size: 0.7em">(song above: madkitty!! -- FACTOR THIS)</span>
 				<br><br>
-				everything here is made with <span style="color: #cc5ad1"> love </span> <i>(and wonder)</i><br>
+				everything here is made with <span style="color: #cc5ad1"> love </span> <i>(and a lot of time lol)</i><br>
 			</p>
 			
-			<br><hr><br>
-			
-			<p style="color: #653766";> listen to my music here vvv<br>
-			<a href="https://www.youtube.com/watch?v=_wTBGbg1ZZk" target="_blank">bandcamp</a>
-			<a href="https://www.youtube.com/watch?v=_wTBGbg1ZZk" target="_blank">spotify</a>	
-			<a href="https://www.youtube.com/watch?v=_wTBGbg1ZZk" target="_blank">apple music</a>
-			<a href="https://www.youtube.com/watch?v=_wTBGbg1ZZk" target="_blank">youtube</a><br>
-			<span style="font-size: 0.7em">(yes these links are broken. i will update!!)<span>
-			</p>
-			
-			<br><p style="color: #653766";>i also have a <a href="/blog/">blog</a> if ur interested....</p>
-			
-		
 			<br><hr><br>
 		
 			<p style="color: #653766";>
@@ -265,12 +299,12 @@
 			<p style="color: #653766";>dogs... go eat dirt or something</p>
 			
 			<marquee
-			  direction="down"
-			  width="450"
-			  height="300"
-			  behavior="alternate"
-			  class="outlined">
-			 <marquee behavior="alternate"><img src="images/kitten.png" width="150" title="hi!!!" alt="kitty"></marquee>
+			    direction="down"
+			    width="450"
+			    height="300"
+			    behavior="alternate"
+			    class="outlined">
+			    <marquee behavior="alternate"><img src="images/kitten.png" width="150" title="hi!!!" alt="kitty"></marquee>
 			</marquee>
 			<p style="color: #653766">^^^ bounced for eternity</p>
 			
@@ -278,9 +312,12 @@
 			
 			<p style="color: #653766"><span  style="font-size: 0.7em">2026 madkitty all rights reserved or something<br>
 			direct any complaints to da BIN<br>
-			cat following cursor courtesy of <a href="https://github.com/adryd325/oneko.js" target="_blank">adryd325</a></span></p><br>
+			cat following cursor courtesy of <a href="https://github.com/adryd325/oneko.js" target="_blank">adryd325</a></span></p>
+		
+			<p style="font-size: 0.7em"><a href="https://puppyboy.parts" target="_blank">
+				<img src="images/ma own paws.png" width="80" alt="made with my own two paws!!">
+			</a></p>
 			
-			<img src="images/ma own paws.png" width="80" title="i made this badge!!!!! aren't i clever">
 		</main>
 		
 		<script>
@@ -325,4 +362,3 @@
 	</body>
 
 </html>
-
