@@ -41,6 +41,40 @@
 				z-index: 2;
 			}
 			
+			.top-nav {
+				display: flex;
+				width: 100%;
+				max-width: 500px;
+				gap: 1ch;
+				margin-bottom: 0.8ch;
+				justify-content: space-between;
+				box-sizing: border-box;
+			}
+
+			.top-nav a {
+				flex: 1;
+				
+				color: #653766;
+				text-decoration: none;
+
+				font-size: 1.2em;
+
+				border: 2px outset #ffebff;
+				background-color: #ffdbff;
+
+				font-family: "Micro 5", serif;
+				text-align: center;
+
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				z-index: 2;
+			}
+			
+			.top-nav a:hover {
+				background-color: #f6c8f6;
+			}
+			
 			body::before {
 				content: "";
 				position: fixed;
@@ -108,6 +142,22 @@
 					transform: translateY(-20px);
 				}
 			}
+			
+			html::before {
+				content: "";
+				position: fixed;
+				inset: -50%;
+				background: url("../style/clouds.png") repeat;
+				background-size: 512px 512px;
+				pointer-events: none;
+				animation: driftSlow 6s linear infinite;
+				z-index: 0;
+			}			
+			
+			@keyframes driftSlow {
+				from { transform: translate(0, 0); }
+				to   { transform: translate(-512px, 512px); }
+			}
 
 		</style>
 		
@@ -126,8 +176,14 @@
 		</h1>
 		
 		<main>
+		
+			<nav class="top-nav">
+				<a href="/">home</a>
+				<a href="https://www.youtube.com/watch?v=_wTBGbg1ZZk" target="_blank">music</a>
+				<a href="/other/">other stuff</a>
+			</nav>
+		
 			<h3 style="color: #653766";>welcome to my blog #blog</h3>
-			<p><a href="../">return to home</a></p>
 			<p style="color: #653766";>here i ramble about things. blog posts are listed below, newest first!</p>
 			<br><hr><br>
 			<p style="color: #653766";><a href="./1/">#1 - 05/01/26 - website!!!</a></p>
@@ -153,7 +209,9 @@
 			</marquee>
 			<p style="color: #653766">^^^ bounced for eternity (in da blog)</p>
 			
-			<p><a href="../">return to home</a></p>
+			<br><p style="font-size: 0.7em">
+				<img src="../images/ma own paws.png" width="80" alt="made with my own two paws!!">
+			</p>
 			
 		</main>
 
