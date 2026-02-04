@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>madkitty dot world</title>
+		<link rel="icon" type="image/x-icon" href="../../style/favicon.svg">
+		<link href="https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Micro+5&display=swap" rel="stylesheet">
+
+
+		
+		<style>
+			html {
+				background-image: url("../../style/giygaslight.png");
+				background-repeat: repeat;
+				background-color: #fff6ff;
+				position: relative;
+			}
+	
+		
+			body {
+				width: 100%;
+				margin: 0;
+				min-height: 100vh;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				text-align: center;				
+			}
+			
+			main {
+				width: 100%;
+				max-width: 500px;
+				box-sizing: border-box;
+
+				border: 8px outset;
+				border-color: #ffebff;
+				background-color: #ffdbff;
+				padding: 2ch;
+				margin-bottom: 4rem;
+				position: relative;
+				z-index: 2;
+			}
+			
+			.top-nav {
+				display: flex;
+				width: 100%;
+				max-width: 500px;
+				gap: 1ch;
+				margin-bottom: 0.8ch;
+				justify-content: space-between;
+				box-sizing: border-box;
+			}
+
+			.top-nav a {
+				flex: 1;
+				
+				color: #653766;
+				text-decoration: none;
+
+				font-size: 1.2em;
+
+				border: 2px outset #ffebff;
+				background-color: #ffdbff;
+
+				font-family: "Micro 5", serif;
+				text-align: center;
+
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				z-index: 2;
+			}
+			
+			.top-nav a:hover {
+				background-color: #f6c8f6;
+			}
+			
+			body::before {
+				content: "";
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				pointer-events: none;
+				background: linear-gradient(to right, rgba(255,219,255,1) 0%, rgba(255,219,255,0) 10%, rgba(255,219,255,0) 90%, rgba(255,219,255,1) 100%);
+				
+				z-index: 1;
+			}
+			
+			h1 {
+				font-family: "Jacquard 12", serif;
+				font-size: 5em;
+				margin-bottom: 0;
+			}
+			
+			h3 {
+				font-family: "Micro 5", serif;
+				font-size: 2.3em;
+				margin-top: 0;
+				margin-bottom: 0;
+			}
+			
+			p {
+				color: #653766;
+			}
+			
+			hr {
+				height: 2px;
+				border: none;
+				background-color: #ffebff;
+			}
+			
+			.wave-text span {
+				display: inline-block;
+				animation: wave 2s ease-in-out infinite;
+			}
+
+			.wave-text span:nth-child(1) { animation-delay: 0s; }
+			.wave-text span:nth-child(2) { animation-delay: 0.1s; }
+			.wave-text span:nth-child(3) { animation-delay: 0.2s; }
+			.wave-text span:nth-child(4) { animation-delay: 0.3s; }
+			.wave-text span:nth-child(5) { animation-delay: 0.4s; }
+			.wave-text span:nth-child(6) { animation-delay: 0.5s; }
+			.wave-text span:nth-child(7) { animation-delay: 0.6s; }
+			.wave-text span:nth-child(8) { animation-delay: 0.7s; }
+			.wave-text span:nth-child(9) { animation-delay: 0.8s; }
+			.wave-text span:nth-child(10) { animation-delay: 0.9s; }
+			.wave-text span:nth-child(11) { animation-delay: 1s; }
+			.wave-text span:nth-child(12) { animation-delay: 1.1s; }
+			.wave-text span:nth-child(13) { animation-delay: 1.2s; }
+			.wave-text span:nth-child(14) { animation-delay: 1.3s; }
+			.wave-text span:nth-child(15) { animation-delay: 1.4s; }
+			.wave-text span:nth-child(16) { animation-delay: 1.5s; }
+			.wave-text span:nth-child(17) { animation-delay: 1.6s; }
+			.wave-text span:nth-child(18) { animation-delay: 1.7s; }
+			.wave-text span:nth-child(19) { animation-delay: 1.8s; }
+			.wave-text span:nth-child(20) { animation-delay: 1.9s; }
+
+			@keyframes wave {
+				0%, 100% {
+					transform: translateY(0);
+				}
+				50% {
+					transform: translateY(-20px);
+				}
+			}
+
+			html::before {
+					content: "";
+					position: fixed;
+					inset: -50%;
+					background: url("../../style/clouds.png") repeat;
+					background-size: 512px 512px;
+					pointer-events: none;
+					animation: driftSlow 6s linear infinite;
+					z-index: 0;
+				}			
+				
+				@keyframes driftSlow {
+					from { transform: translate(0, 0); }
+					to   { transform: translate(-512px, 512px); }
+			}
+
+			.audio-wrap {
+				position:relative;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 12px;
+			}
+
+			.audio-player {
+				position: relative;
+				width: 125px;
+				height: 125px;
+				margin: 0.5em auto;
+			}
+
+			.progress-ring {
+				transform: rotate(-90deg);
+				width: 100%;
+				height: 100%;
+			}
+
+			.progress-ring circle {
+				transition: stroke-dashoffset 0.1s linear;
+			}
+
+			.play-pause {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				background: none;
+				border: none;
+				cursor: pointer;
+				width: 50px;
+				height: 50px;
+				padding: 0;
+				}
+
+				.play-pause .icon {
+				width: 100%;
+				height: 100%;	
+			}
+
+			.volume-slider {
+				position: absolute;
+				right: -80px;
+				top: 48%;
+				transform: translateY(-50%) rotate(90deg);
+				width: 80px;
+				opacity: 0;
+				pointer-events: none;
+				transition: opacity 0.5s ease;
+				accent-color: #f0a8f3;
+			}
+
+			.audio-player.playing .volume-slider {
+				opacity: 1;
+				pointer-events: auto;
+			}
+			
+			.neco {
+				position: absolute;
+				right: 65%;
+				margin-right: 12px;
+				width: 80px;
+
+				opacity: 0;
+				transition: opacity 0.5s ease;
+				pointer-events: none;
+			}
+
+			.neco.playing {
+				opacity: 1;
+			}
+
+		</style>
+		
+	</head>
+	
+	<body>
+	
+		<script src="/oneko/oneko.js"></script>
+	
+		<h1 class="wave-text" style="color: #653766";>
+			<span>m</span><span>a</span><span>d</span><span>k</span><span>i</span><span>t</span><span>t</span><span>y</span>
+			<span> </span>
+			<span>d</span><span>o</span><span>t</span>
+			<span> </span>
+			<span>w</span><span>o</span><span>r</span><span>l</span><span>d</span>
+		</h1>
+		
+		<main>
+		
+			<nav class="top-nav">
+				<a href="/">home</a>
+				<a href="/blog/">blog index</a>
+			</nav>
+		
+			<h3 style="color: #653766";>welcome to my blog #blog</h3>
+			<hr>
+			
+			<p><b>#3 - 04/02/2026 - fl studio on linux is a fundamental waste of your time</b></p>
+			
+			<img src="pccat.jpg" width="300px" alt="cat on the puter" title="snork mimimimi" style="border: 4px outset #ffebff">
+
+			<p style="font-size: 0.7em">fair warning: this is quite a rambly post</p>
+
+			<p>so recently i finally bit the bullet and bought a new computer! it cost me way more than i'm willing to admit so to ease the pain i enlisted my fine boyfriend to do everything else for me that did not involve money re: setting it up, installing os etc. it's purdy good but nothin too fancy, just enough to tide me over for the next five to six (to seven) years of music prod and occasional gaming.</p>
+
+			<p>as this is my first new puter in six years, i felt it to be a good time to try out linux! i've always been lightly interested in trying it, but as i have about 500gb of projects (including music, art, other stuff all of which requiring unique software for each thing, inevitable hours of set-up etc) i never bothered to wipe my windows install on my old pc in favour of linux simply because i couldn't be bothered to set everything up again when i knew i was getting a new computer soon anyway.</p>
+
+			<p>but, now the time has come, and i have had the computer with linux mint for a few weeks now! and i can very confidently say one thing:</p>
+
+			<p><b>trying to get fl studio to work properly on linux (<i>if</i> you have old projects you're porting over) is a fundamental waste of your time!!!</b></p>
+
+			<p>do not bother! it is not worth the effort! here, i shall list out all of the issues i (well, largely my boyfriend teehee) had with trying to get it to work... and the solution!</p>
+
+			<p style="font-size: 0.7em">spoiler: dual boot windows lol</p>
+
+			<br><hr>
+			
+			<p><b>problem 1: fl studio is windows/mac only</b></p>
+			
+			<p>i mean yeah, you can get it to run through wine, but then you already have some issues. the first thing i experienced when we finally got fl to boot was laggy ui, especially the volume meters. with some more fucking around we discovered that we should've installed it through <a href="https://usebottles.com" target="_blank">bottles</a> and not <a href="https://github.com/Faugus/faugus-launcher" target="_blank">faugus</a> which i will not pretend to understand why but whatever.</p>
+
+			<p>following this it seemed a little smoother! however, as i began playing around, another issue immediately reared its ugly head...</p>
+
+			<br><hr>
+			
+			<p><b>problem 2: audio drivers</b></p>
+			
+			<p>alongside madkitty!! stuff, i also write a lot of music under <a href="https://raingardens.bandcamp.com" target="_blank">Raingardens</a>, which requires running my guitars into my audio interface either DI'd or mic'd. i have a focusrite 18i8, which works great in linux out of the box for hearing audio, but not so great as a conduit for input devices.</p>
+
+			<p>to get the guitar input measured in fl studio, you'd need the focusrite drivers! unfortunately, the focusrite drivers are windows only. surely it must be a simple process to get the drivers working in fl studio using something like bottles, right?</p>
+
+			<p>i mean, maybe? idk i didn't do it myself (thank you boyfriend ♡ (he says i provided emotional support)) but from my understanding it was not really a straightforward process.</p>
+
+			<p>my knowledge of this goes as follows: the audio drivers (<a href="https://en.wikipedia.org/wiki/Audio_Stream_Input/Output" target="_blank">ASIO</a>) need to communicate with both fl studio and the interface, which usually is a one-step process either way in windows (fl studio -> driver -> audio that u can hear OR input audio u want to record -> driver -> fl studio) but linux doesn't have this functionality.</p>
+			
+			<p>so, you need to bridge the drivers both ways to make it work. you need to make the drivers exist in their own little linux-suitable fake-ASIO driver that can talk with fl, and then the output has to be run through some other bridging process to actually be heard.</p>
+
+			<p>and, in the end, there was noticable input lag when playing guitar :( apparently there were ways to fix this but i never really got around to it, as i got bogged down on a much more annoying problem that eventually pushed me to a dual boot...</p>
+
+			<br><hr>
+			
+			<p><b>problem 3 (the kicker): vsts</b></p>
+
+			<p>i use <a href="https://en.wikipedia.org/wiki/Virtual_Studio_Technology" target="_blank">vsts</a> a lot! i make music; vsts are basically the thing that keeps that going. over the years i've accrued a large selection of vsts, both free and paid, that i use regularly in my workflow. from my old pc, i had very carefully extracted all of the vsts from their little folders alongside all of their respective bits and bobs to make getting the vsts to work with linux as easy as possible.</p>
+
+			<p>upon giving up dealing with the input lag (see problem 2) i decided to import all of my vsts. annoyingly, only half of them seemed to work! no good! i discovered a consistent issue with the broken vsts were that they were 32 bit.</p>
+
+			<p>now, fl studio can deal with 32 bit plugins as it has its own internal wrapper that makes it work without needing to bridge (i know that in ableton you need to use stuff like <a href="https://jstuff.wordpress.com/jbridge/" target="_blank">jbridge</a> to get 32 bit plugins to work (i'm like 50% confident on this fact)).</p>
+
+			<p>this is very useful as i can basically use whatever plugin i want without issue when i'm on windows! however, many of the plugins i use regularly are 32 bit, and linux did NOT like the 32 bit vsts.</p>
+
+			<p>basically, the vsts would crash fl studio whenever they could. this is really unhelpful when you are trying to make music! and thus, i sought out solutions.</p>
+
+			<p>i tried a few workarounds, including editing registry entries of each individual vst to wrap it in its own little special bottles thing or whatever (i'm not going to pretend to understand it). this allowed me to add in vsts into new projects, but still crashed spectacularly on older projects that were ported from windows.</p>
+
+			<p>atop that, many of my vsts were simply just broken. linux did not like them, or i maybe missed some files when trying to port it over, or whatever. it didn't matter, for they did not work at all. i realised that i was going to need to download all of the installers for each vst, run them individually in bottles, specify where the new installs would go, etc.</p>
+
+			<p>can't be bovvereddddddddddd</p>
+
+			<p>so, i gave up! i realised it was going to be way more effort than it was worth to get anything working properly, and i resigned myself to needing to dualboot. i was really hoping not to but it had to be done.</p>
+
+			<br><hr>
+			
+			<p><b>epilogue</b></p>
+
+			<p>i've had fl studio on a windows dualboot for about a day or two now, and by god it's so easy. i've had a few little problems here and there but nothing that cannot be fixed with 10 minutes of effort. my condolences to the few hours of effort my lovely boyfriend put into trying to get fl studio to work in linux for me. it was fruitless.</p>
+
+			<p>the only issue i have had is that ozone imager, which i used all the time, for some reason requires a serial code although it's a free plugin? so that simply doesn't work, so i have to replace every instance of it with ozone imager 2, which i have got a license for(?) whatever i guess.</p>
+
+			<p>anyway dats about it tho. don't waste your time trying to get fl studio to work in linux unless you're a) insane or b) never used fl studio before and are starting completely blank. i had so many old projects i still wanted to use so unfortunately the dualboot was the best option</p>
+
+			<p>"oh but you should've done this or this or that" "why don't you use reaper or bitwig" don't care sniffin da graaaaassssss</p>
+
+			<img src="pccat2.jpg" width="300px" alt="cat in da stu" title="fl stu...." style="border: 4px outset #ffebff">
+			
+			<p></p>
+			
+			<nav class="top-nav">
+				<a href="/">home</a>
+				<a href="/blog/">blog index</a>
+			</nav>
+			
+			<br><p style="font-size: 0.7em">
+				<img src="../../images/ma own paws.png" width="80" alt="made with my own two paws!!">
+			</p>
+			
+		</main>
+
+		<script>
+			document.querySelectorAll('.audio-player').forEach(player => {
+				const audio = player.querySelector('audio');
+				const button = player.querySelector('.play-pause');
+				const icon = button.querySelector('.icon');
+				const progressCircle = player.querySelectorAll('.progress-ring circle')[1];
+				const volumeSlider = player.querySelector('.volume-slider');
+				const neco = player.closest('.audio-wrap').querySelector('.neco');
+
+				const radius = 45;
+				const circumference = 2 * Math.PI * radius;
+
+				progressCircle.style.strokeDasharray = `${circumference} ${circumference}`;
+				progressCircle.style.strokeDashoffset = circumference;
+
+				function setProgress() {
+					if (!audio.duration) return;
+					const offset = circumference - (audio.currentTime / audio.duration) * circumference;
+					progressCircle.style.strokeDashoffset = offset;
+				}
+
+				volumeSlider.addEventListener('input', () => {
+					audio.volume = volumeSlider.value;
+				});
+				audio.volume = volumeSlider.value;
+
+				button.addEventListener('click', () => {
+					if (audio.paused) {
+						audio.play();
+						icon.src = '../../style/pause.png';
+						player.classList.add('playing');
+						neco.classList.add('playing');
+					} else {
+						audio.pause();
+						icon.src = '../../style/play.png';
+						player.classList.remove('playing');
+						neco.classList.remove('playing');
+					}
+				});
+
+				audio.addEventListener('timeupdate', setProgress);
+			});
+		</script>
+
+	</body>
+
